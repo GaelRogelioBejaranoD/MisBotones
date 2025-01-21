@@ -1,43 +1,88 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MiBotonApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+class MiBotonApp extends StatelessWidget {
+  const MiBotonApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      title: "Mi Boton",
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MiPaginaInicial(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
+// Segunda clase
+class MiPaginaInicial extends StatelessWidget {
+  const MiPaginaInicial({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
-    );
+        appBar: AppBar(title: Text("Ejemplo boton Flutter")),
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TextButton(
+              child: Text(
+                "Ejemplo de Texto",
+                style: TextStyle(fontSize: 25),
+              ),
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xffae31d4)),
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xffffffff)),
+              ),
+            ),
+            TextButton(
+              child: Text(
+                "Hola mundo!",
+                style: TextStyle(fontSize: 13),
+              ),
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xff4b9ac8)),
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xffffffff)),
+              ),
+            ),
+            TextButton(
+              child: Text(
+                "Rogelio",
+                style: TextStyle(fontSize: 7),
+              ),
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xffdb7029)),
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(Color(0xffffffff)),
+              ),
+            ),
+            TextButton(
+                child: Text(
+                  "Boton",
+                  style: TextStyle(fontSize: 34),
+                ),
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xff2e9820)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Color(0xffffffff)),
+                ))
+          ],
+        )));
   }
 }
